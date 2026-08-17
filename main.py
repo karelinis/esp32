@@ -5,12 +5,12 @@ import ugit
 # Настройка кнопки BOOT (GPIO 0 на большинстве плат ESP32) с подтяжкой к питанию
 button = Pin(0, Pin.IN, Pin.PULL_UP)
 
-print("Нажмите кнопку BOOT для синхронизации с GitHub через ugit...")
+print("Нажмите BOOT для синхронизации с GitHub через ugit...")
 
 while True:
     # Кнопка при нажатии замыкается на GND (уровень LOW)
     if button.value() == 0:
-        print("Кнопка нажата! Запуск синхронизации...")
+        print("Запуск синхронизации...")
         try:
             # Вызов функции обновления репозитория
             ugit.pull_all()
@@ -22,4 +22,3 @@ while True:
         time.sleep(2)
         
     time.sleep(0.1)
-
